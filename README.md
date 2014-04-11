@@ -17,7 +17,7 @@ Apri un *issue* o *pull request* per suggerire modifiche o integrazioni.
 
 ### Traduzioni
 
-Le traduzioni sono mantenute dai loro creatori e possiblimente non sempre aggiornate con l'originale qui.
+Le traduzioni sono mantenute dai loro creatori e possiblimente non sempre aggiornate con questa versione o l'originale in Inglese.
 
 - [Italian](http://aauri.github.io/wtf-html-css/) - Tradotto da [aauri](https://github.com/aauri)
 - [Korean/한국어](http://snack-x.github.io/wtf-html-css/) - Tradotto da [Snack](https://github.com/Snack-X)
