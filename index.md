@@ -2,61 +2,62 @@
 layout: default
 ---
 
-### Contents
+### Contenuti
 
-- [Declare a doctype](#doctype)
-- [Box model math](#box-model-math)
-- [Rem units and Mobile Safari](#rems-mobile-safari)
-- [Floats first](#floats-first)
-- [Floats and clearing](#floats-clearing)
-- [Floats and computed height](#floats-computed-height)
-- [Floated are block level](#floats-block-level)
-- [Vertical margins often collapse](#vertical-margins-collapse)
-- [Styling table rows](#styling-table-rows)
-- [Firefox and `<input>` buttons](#buttons-firefox)
-- [Firefox inner outline on buttons](#buttons-firefox-outline)
-- [Always set a `type` on `<button>`s](#buttons-type)
-- [Internet Explorer's selector limit](#ie-selector-limit)
-- [Position explained](#position-explained)
-- [Position and width](#position-width)
-- [Fixed position and transforms](#position-transforms)
+- [Dichiara un doctype](#doctype)
+- [Matematica del Box Model](#box-model-math)
+- [Unità `rem` e Safari in iOS](#rems-mobile-safari)
+- [Flottanti "*Floats*" prima](#floats-first)
+- [*Floats* e la proprietà `clear`](#floats-clearing)
+- [*Floats* e l'altezza computata](#floats-computed-height)
+- [*Floats* sono a blocco (*block level*)](#floats-block-level)
+- [Margini verticali collassano spesso](#vertical-margins-collapse)
+- [Formattazione visuale di righe di tabelle](#styling-table-rows)
+- [Firefox e i pulsanti `<input>` ](#buttons-firefox)
+- [Firefox e i bordi interni dei pulsanti](#buttons-firefox-outline)
+- [Assegna sempre un `type` per `<button>`](#buttons-type)
+- [Limite di selettori in Internet Explorer](#ie-selector-limit)
+- [Posizionamento `position` chiarito](#position-explained)
+- [Posizionamento `position` e larghezza `width`](#position-width)
+- [Posizionamento `fixed` con `transform`](#position-transforms)
 
 
 <a name="doctype"></a>
-### Declare a doctype
-Always include a doctype. I recommend the simple HTML5 doctype:
+### Dichiara un doctype
+Bisogna sempre dichiarare un doctype. Vi raccomando il semplice doctype di HTML5:
 
 ```html
 <!DOCTYPE html>
 ```
 
-[Skipping the doctype can cause issues](http://quirks.spec.whatwg.org) with malformed tables, inputs, and more as the page will be rendered in quirks mode.
+[Tralasciare il doctype può causare problemi](http://quirks.spec.whatwg.org) con malformazione di tabelle, forme `<input>`, ed altri problemi nella gestione della pagina.
 
 
 <a name="box-model-math"></a>
-### Box model math
-Elements that have a set `width` become *wider* when they have `padding` and/or `border-width`. To avoid these problems, make use of the now common [`box-sizing: border-box;` reset](http://www.paulirish.com/2012/box-sizing-border-box-ftw/).
+### Matematica del Box Model
+Elementi con larghezza `width` assegnata diventano più ampi quando hanno pure il cuscinetto `padding` e/o un bordo con `border-width`.
+Per evitare questi problemi, utilizza l'ormai comune [*reset* `box-sizing: border-box;`](http://www.paulirish.com/2012/box-sizing-border-box-ftw/).
 
 
 <a name="rems-mobile-safari"></a>
-### Rem units and Mobile Safari
-While Mobile Safari supports the use of `rem`s in all property values, it seems to shit the bed when `rem`s are used in dimensional media queries and infinitely flashes the page's text in different sizes.
+### Unità `rem` e Safari per iOS
+Mentre l'uso di unità `rem` e integrato in Safari per dispositivi mobile in tutti i valori di proprietà, fa impazzire a qualcuno quando `rem` sono usati in `media queries` e la grandezza del testo della pagina diventa infinitamente intermittente.
 
-For now, use `em`s in place of `rem`s.
+Per ora, meglio usare l'unità `em` in cambio delle unità `rem`.
 
 ```css
 html {
   font-size: 16px;
 }
 
-/* Causes flashing bug in Mobile Safari */
+/* Causa problemi in Safari per iOS */
 @media (min-width: 40rem) {
   html {
     font-size: 20px;
   }
 }
 
-/* Works great in Mobile Safari */
+/* Funziona bene in Safari per iOS */
 @media (min-width: 40em) {
   html {
     font-size: 20px;
@@ -64,28 +65,28 @@ html {
 }
 ```
 
-**Help!** *If you have a link to an Apple or WebKit bug report for this, I'd love to include it. I'm unsure where to report this as it only applies to Mobile, and not Desktop, Safari.*
+**Aiuto!** *Se avete un link per segnalazione di bug per Apple or WebKit, mi piacerebbe includerlo qui. Questo problema solo succede nella versione di Safari per dispositivi mobile e non nella versione per desktop, quindi non siamo sicuri dove segnalare questo bug*.
 
 
 <a name="floats-first"></a>
-### Floats first
-Floated elements should always come first in the document order. Floated elements require something to wrap around, otherwise they can cause a step down effect, instead appearing below the content.
+###Flottanti "*Floats*" prima
+Elementi flottanti `float` devono sempre venire prima nell'ordine del documento. Questo è perche elementi `float` devono avere qualcosa da avvolgersi intorno, sennò sono resi con difetti di spaziatura. 
 
 ```html
 <div class="parent">
   <div class="float">Float</div>
   <div class="content">
-    <!-- ... -->
+    <!-- … -->
   </div>
 </div>
 ```
 
 
 <a name="floats-clearing"></a>
-### Floats and clearing
-If you float it, you *probably* need to clear it. Any content that follows an element with a `float` will wrap around that element until cleared. To clear floats, use one of the following techniques.
+### *Floats* e la proprietà `clear`
+Se usi `float`, è probabilmente indispensabile usare la proprietà `clear` in un elemento successivo ad uno reso `float`, così impedisce che questo subisca il `float`. Per usare la proprietà `clear`, puoi usare uno di questi esempi.
 
-Use [the micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) to clear your floats with a separate class.
+Ecco il [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) che usa `clear` con una classe separata.
 
 ```css
 .clearfix:before,
@@ -98,82 +99,83 @@ Use [the micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) to cl
 }
 ```
 
-Alternatively, specify `overflow`, with `auto` or `hidden`, on the parent.
+Oppure, assegna `overflow`, con `auto` or `hidden` nel progenitore.
 
 ```css
 .parent {
   overflow: auto; /* clearfix */
 }
 .other-parent {
-  overflow: hidden; /* clearfix */
+  overflow: hidden; /* clear fix */
 }
 ```
 
-Be aware that `overflow` can cause other unintended side effects, typically around positioned elements within the parent.
+È importante ricordarsi che `overflow` può causare effetti collaterali non voluti, tipicamente intorno elementi all'interno del progenitore.
 
-**Pro-Tip!** *Keep your future self and your coworkers happy by including a comment like `/* clearfix */` when clearing floats as the property can be used for other reasons.*
+**Pro-Tip!** Fai un piacere a te e a i tuoi colleghi usando un commento `/* clearfix */` quando usi la proprietà `clear` per `floats` siccome la proprietà può essere usata per altre ragioni.
 
 
 <a name="floats-computed-height"></a>
-### Floats and computed height
-A parent element that has only floated content will have a computed `height: 0;`. Add a clearfix to the parent to force browsers to compute a height.
+### *Floats* e l'altezza computata
+Un elemento progenitore che solo ha contenuto `float` avrà una l'altezza computata `height: 0;`. Usa un *clearfix* nel progenitore per costringere il *browser* a calcolare l'altezza.
 
 
 <a name="floats-block-level"></a>
-### Floated elements are block level
-Elements with a `float` will automatically become `display: block;`. Do not set both as there is no need and the `float` will override your `display`.
+### *Floats* sono a blocco (*block level*)
+Elementi `float` sono automaticamente a blocco o `display: block;`. Non è necessario impostare la proprietà `display` siccome è ignorata a meno che non abbia il valore `none`.
 
 ```css
 .element {
   float: left;
-  display: block; /* Not necessary */
+  display: block; /* Non è necessario */
 }
 ```
 
-**Fun fact:** *Years ago, we had to set `display: inline;` for most floats to work properly in IE6 to avoid the [double margin bug](http://www.positioniseverything.net/explorer/doubled-margin.html). However, those days have long passed.*
+***Fun fact:*** *Anni fa, dovevamo impostare `display: inline;` per far funzionare `float` correttamente in IE6 evitando il [bug](http://www.positioniseverything.net/explorer/doubled-margin.html) di [margine raddoppiato](http://gabrieleromanato.altervista.org/css/pie/doubled-margin/index.html). Comunque, quei tempi sono ormai passati.*
 
 
 <a name="vertical-margins-collapse"></a>
-### Vertically adjacent margins collapse
-Top and bottom margins on adjacent elements (one after the other) can and will collapse in many situations, but never for floated or absolutely positioned elements. [Read this MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/margin_collapsing) or the CSS2 spec's [collapsing margin section](http://www.w3.org/TR/CSS2/box.html#collapsing-margins) to find out more.
+### Margini verticali adiacenti collassano
+Margini superiori e inferiori in elementi adiacenti (uno dopo l'altro) possono collassare (*collapse*) in varie situazioni, pero mai nei elementi posizionati `float` o `absolute`. Puoi leggere [questo articolo di MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/margin_collapsing) o le specifiche CSS2 su collassare i margini in [italiano](http://www.diodati.org/w3c/css2/box.html#collapsing-margins) o in [inglese](http://www.w3.org/TR/CSS2/box.html#collapsing-margins) per approfondimento.
 
-Horizontally adjacent margins will **never collapse**.
+I margini orizzontali **non collassano mai**.
 
 
 <a name="styling-table-rows"></a>
-### Styling table rows
-Table rows, `<tr>`s, do not receive `border`s unless you set `border-collapse: collapse;` on the parent `<table>`. Moreover, if the `<tr>` and children `<td>`s or `<th>`s have the *same* `border-width`, the rows will not see their border applied. [See this JS Bin link for an example.](http://jsbin.com/yabek/2/)
+### Formattazione visuale di righe di tabelle
+Le righe di una tabella o `<tr>` non possono avere bordi a meno che usi il valore `border-collapse: collapse;` nel progenitore `<table>`. 
+Per di più, se il `<tr>` e suoi `<td>` o `<th>` hanno lo *stesso* `border-width`, le proprietà del bordo per le righe `<tr>` sono ignorate. [Puoi vedere un esempio in questo JS Bin](http://jsbin.com/yabek/2/)
 
 
 <a name="buttons-firefox"></a>
-### Firefox and `<input>` buttons
+### Firefox e i pulsanti `<input>`
+Per ragioni sconosciute, Firefox applica un `line-height` a i pulsanti "Invia" e bottoni di `<input>` e CSS non può cambiare questo comportamento. A questo punto hai due alternative:
 
-For reasons unknown, Firefox applies a `line-height` to submit and button `<input>`s that cannot be overridden with custom CSS. You have two options in dealing with this:
+1. Usa solo elementi `<button>`
+2. Non usare mai `line-height` nei tuoi pulsanti.
 
-1. Stick to `<button>` elements
-2. Don't use `line-height` on your buttons
-
-Should you go with the first route (and I recommend this one anyway because `<button>`s are great), here's what you need to know:
+Se usi la prima alternativa (e mi raccomando questo comunque  perché i `<button>` sono ottimi), ecco cosa è necessario sapere:
 
 ```html
-<!-- Not so good -->
-<input type="submit" value="Save changes">
-<input type="button" value="Cancel">
+<!-- Così così -->
+<input type="submit" value="Salva">
+<input type="button" value="Annulla">
 
-<!-- Super good everywhere -->
-<button type="submit">Save changes</button>
-<button type="button">Cancel</button>
+<!-- Bene dappertutto -->
+<button type="submit">Salva</button>
+<button type="button">Annulla</button>
 ```
 
-Should you wish to go the second route, just don't set a `line-height` and use *only* `padding` to vertically align button text. [View this JS Bin example](http://jsbin.com/yabek/4/) in Firefox to see the original problem and the workaround.
+Se preferisci usare la seconda alternativa, basta non usare  `line-height` e in cambio usare **solo**  `padding` per allineare il testo del pulsante.
+[Vedi questo esempio in JS Bin](http://jsbin.com/yabek/4/) in Firefox per vedere il problema e la soluzione.
 
-**Good news!** *It looks like [a fix for this](https://bugzilla.mozilla.org/show_bug.cgi?id=697451#c43) might be coming in Firefox 30. That's good news for our future selves, but be aware this doesn't fix older versions.*
+**Buone notizie!** *Sembra che ci sarà [una correzione per questo](https://bugzilla.mozilla.org/show_bug.cgi?id=697451#c43) in Firefox 30. Queste sono buone notizie per noi nel futuro, pero non cambia i problemi nelle versioni precedenti.*
 
 
 <a name="buttons-firefox-outline"></a>
-### Firefox inner outline on buttons
+### Firefox e i bordi interni di pulsanti
 
-Firefox [adds an inner outline](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Notes) to buttons (`<input>`s and `<button>`s) on `:focus`. Apparently it's for accessibility, but its placement seems rather odd. Use this CSS to override it:
+Firefox [aggiunge bordi interni](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Notes) a i pulsanti `<input>` e `<button>` nella proprietà `:focus`. Apparentemente è per l'accessibilità, ma la sua collocazione sembra piuttosto strana. Usa questa soluzione in CSS per ignorare questi bordi:
 
 ```css
 input::-moz-focus-inner,
@@ -183,44 +185,44 @@ button::-moz-focus-inner {
 }
 ```
 
-You can see this fix in action in the same [JS Bin example](http://jsbin.com/yabek/4/) mentioned in the previous section.
+Puoi vedere questa soluzione in azione nello stesso [esempio in JS Bin](http://jsbin.com/yabek/4/) menzionato nella sezione anteriore.
 
-**Pro-Tip!** *Be sure to include some focus state on buttons, links, and inputs. Providing an affordance for accessibility is paramount, both for pro users who tab through content and those with vision impairments.*
+**Pro-Tip!** *Non dimenticare di includere un stato `focus` a i link, `<botton>`, e `<input>`. Fornire usabilità per l'accessibilità è fondamentale, sia per gli utenti Pro o utenti con disabilità visive.*
 
 
 <a name="buttons-type"></a>
-### Always set a `type` on `<button>`s
-The default value is `submit`, meaning any button in a form can submit the form. Use `type="button"` for anything that doesn't submit the form and `type="submit"` for those that do.
+### Assegna sempre un `type` per `<button>`
+Il valore iniziale è `submit`, cioè, qualsiasi pulsante in una *form* può inviare la forma. Meglio usare `type="button"` per tutto ciò che non invia la forma e `type="submit"` per i pulsanti per inviare.
 
 ```html
-<button type="submit">Save changes</button>
-<button type="button">Cancel</button>
+<button type="submit">Salva</button>
+<button type="button">Annulla</button>
 ```
 
-For actions that require a `<button>` and are not in a form, use the `type="button"`.
+Per azioni che richiedono di un `<button>` e non sono forme, usa `type="button"`.
 
 ```html
 <button class="dismiss" type="button">x</button>
 ```
 
-**Fun fact:** *Apparently IE7 doesn't properly support the `value` attribute on `<button>`s. Instead of reading the attribute's content, it pulls from the innerHTML (the content between the opening and closing `<button>` tags). However, I don't see this as a huge concern for two reasons: IE7 usage is way down, and it seems rather uncommon to set both a `value` and the innerHTML on `<button>`s.*
+**Fun fact:** *Apparentemente, IE7 non supporta correttamente l'attributo `value` nel `<button>`. Invece di rendere i contenuti dell'attributo, rende dal "innerHTML" (il contenuto tra l'apertura e chiusura di `<button>`). Comunque, questo non sembra un problema enorme per due motivi: l'uso di IE7 sta abbassando, e sembra piuttosto raro impostare `value` e "innerHTML" a `<button>`*
 
 
 <a name="ie-selector-limit"></a>
-### Internet Explorer's selector limit
-Internet Explorer 9 and below have a max of 4,096 selectors per stylesheet. There is also a limit of 31 combined stylesheets and `<style></style>` includes per page. Anything after this limit is ignored by the browser. Either split your CSS up, or start refactoring. I'd suggest the latter.
+### Limite di selettori in Internet Explorer
+Internet Explorer 9 e versioni precedenti hanno un massimo di 4,096 selettori per *stylesheet*. C'è pure un limite di 31 *stylesheet* e `<style></style>` inclusi insieme per pagina. Tutto ciò sopra di tale limite viene ignorato dal *browser*. Si deve sceglire tra dividere il CSS o il *refactoring*. Io suggerirei quest'ultimo.
 
-As a helpful side note, here's how browsers count selectors:
+Come nota utile, ecco come i *browser* contano i selettori:
 
 ```css
-/* One selector */
+/* Un selettore */
 .element { }
 
-/* Two more selectors */
+/* Più altri due selettori */
 .element,
 .other-element { }
 
-/* Three more selectors */
+/* Più altri tre selettori */
 input[type="text"],
 .form-control,
 .form-group > input { }
@@ -228,17 +230,17 @@ input[type="text"],
 
 
 <a name="position-explained"></a>
-### Position explained
-Elements with `position: fixed;` are placed relative to the browser viewport. Elements with `position: absolute;` are placed relative to their closest parent with a position other than `static` (e.g., `relative`, `absolute`, or `fixed`).
+### Posizionamento `position` chiarito
+Elementi `position: fixed;` sono posizionati rispetto alla finestra di visualizzazione *"viewport"* del browser. Elementi `position: absolute;` sono posizionati rispetto al blocco congenitore posizionato oltre a `static` (per esempio, `relative`, `absolute`, o `fixed`).
 
 
 <a name="position-width"></a>
-### Position and width
-Don't set `width: 100%;` on an element that has `position: [absolute|fixed];`, `left`, and `right`. The use of `width: 100%;` is the same as the combined use of `left: 0;` and `right: 0;`. Use one or the other, but not both.
+### Posizionamento `position` e larghezza `width`
+Non specificare `width: 100%;` a un elemento che ha `position: [absolute|fixed];`, `left`, e `right`. L'uso di `width: 100%;` e lo stesso al uso congiunto di `left: 0;` e `right: 0;`. Usa uno o l'altro, ma non tutti e due.
 
 
 <a name="position-transforms"></a>
-### Fixed position and transforms
-Browsers break `position: fixed;` when an element's parent has a `transform` set. Using transforms creates a new containing block, effectively forcing the parent to have `position: relative;` and the fixed element to behave as `position: absolute;`.
+### Posizionamento `fixed` con `transform`
+Il *browser* interrompe `position: fixed;` quando il progenitore di un elemento ha la proprietà `transform`. L'uso di `transform` crea un blocco contenitore nuovo, effettivamente costringendo al progenitore a `position: relative;` e l'elemento `fixed` è reso `position: absolute;`.
 
-[See the demo](http://jsbin.com/yabek/1/) and read [Eric Meyer's post on the matter](http://meyerweb.com/eric/thoughts/2011/09/12/un-fixing-fixed-elements-with-css-transforms/).
+[Qui c'è l'esempio](http://jsbin.com/yabek/1/) e leggi pure il [post di Eric Meyers su questo punto](http://meyerweb.com/eric/thoughts/2011/09/12/un-fixing-fixed-elements-with-css-transforms/).
