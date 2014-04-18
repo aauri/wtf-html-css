@@ -1,7 +1,8 @@
-name:          "WTF, HTML and CSS?"
-url:           http://wtfhtmlcss.com
-repo:          https://github.com/mdo/wtf-html-css
+name:          "WTF, HTML e CSS?"
+url:           http://aauri.github.io/wtf-html-css/
+repo:          https://github.com/aauri/wtf-html-css
 twitter:       https://twitter.com/mdo
+
 
 markdown:      redcarpet
 permalink:     pretty

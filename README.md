@@ -1,26 +1,28 @@
-# WTF, HTML and CSS?
+# WTF, HTML e CSS?
 
-**WTF, HTML and CSS?** is a list of reasons HTML and CSS might make you say what the fuck. It's a curated list of commonly frustrating HTML and CSS quandaries, miscues, and dilemmas, created with the goal of making them *less* common.
+**WTF, HTML e CSS?** è una lista di motivi per cui HTML e CSS può farvi dire "che c*zzo". E ' un elenco di errori, incertezze, e dilemmi spesso frustranti di HTML e CSS, creato con l'obiettivo di renderli _meno_ comuni.
 
-**[Start reading ☞](http://wtfhtmlcss.com)**
+**[Comincia a leggere ☞](http://aauri.github.io/wtf-html-css/)**
 
 ---
 
-### Contribute
+### Contribuzioni
 
-Open an issue or a pull request to suggest changes or additions.
+Apri un *issue* o *pull request* per suggerire modifiche o integrazioni.
 
 
-### License
+### Licenza
 
 [MIT licensed.](LICENSE.md) Copyright 2014 @mdo.
 
-### Translations
+### Traduzioni
 
-Translations are maintained by their creators and may not always be up to date with the original here.
+Le traduzioni sono mantenute dai loro creatori e possibilmente non sempre aggiornate con questa versione o l'originale in Inglese.
 
-- [Portuguese](http://webfatorial.github.io/wtf-html-css/) - Translated by [webfatorial](http://webfatorial.com/)
+- [Italian](http://aauri.github.io/wtf-html-css/) - Tradotto da [aauri](https://github.com/aauri)
+- [Korean/한국어](http://snack-x.github.io/wtf-html-css/) - Tradotto da [Snack](https://github.com/Snack-X)
+- [Portuguese](http://webfatorial.github.io/wtf-html-css/) - Tradotto da [webfatorial](http://webfatorial.com/)
 
-Have a translation you'd like to link to? Open a pull request to add it here. Be sure to keep it alphabetical.
+Avete una traduzione che vi piacerebbe includere qui? Apri un *pull request* per aggiungerla, si prega farlo alfabeticamente.
 
 <3

@@ -41,7 +41,7 @@ Per evitare questi problemi, utilizza l'ormai comune [*reset* `box-sizing: borde
 
 <a name="rems-mobile-safari"></a>
 ### Unità `rem` e Safari per iOS
-Mentre l'uso di unità `rem` e integrato in Safari per dispositivi mobile in tutti i valori di proprietà, fa impazzire a qualcuno quando `rem` sono usati in `media queries` e la grandezza del testo della pagina diventa infinitamente intermittente.
+Mentre l'uso di unità `rem` e integrato in Safari per dispositivi mobile in tutti i valori di proprietà, fa da impazzire quando `rem` sono usati in `media queries` e infinitamente lampeggiano il testo della pagina in diverse dimensioni.
 
 Per ora, meglio usare l'unità `em` in cambio delle unità `rem`.
 
@@ -166,7 +166,7 @@ Se usi la prima alternativa (e mi raccomando questo comunque  perché i `<button
 <button type="button">Annulla</button>
 ```
 
-Se preferisci usare la seconda alternativa, basta non usare  `line-height` e in cambio usare **solo**  `padding` per allineare il testo del pulsante.
+Se preferisci usare la seconda alternativa, basta non usare `line-height` e in cambio usare **solo** `padding` per allineare il testo del pulsante.
 [Vedi questo esempio in JS Bin](http://jsbin.com/yabek/4/) in Firefox per vedere il problema e la soluzione.
 
 **Buone notizie!** *Sembra che ci sarà [una correzione per questo](https://bugzilla.mozilla.org/show_bug.cgi?id=697451#c43) in Firefox 30. Queste sono buone notizie per noi nel futuro, pero non cambia i problemi nelle versioni precedenti.*
@@ -236,7 +236,7 @@ Elementi `position: fixed;` sono posizionati rispetto alla finestra di visualizz
 
 <a name="position-width"></a>
 ### Posizionamento `position` e larghezza `width`
-Non specificare `width: 100%;` a un elemento che ha `position: [absolute|fixed];`, `left`, e `right`. L'uso di `width: 100%;` e lo stesso al uso congiunto di `left: 0;` e `right: 0;`. Usa uno o l'altro, ma non tutti e due.
+Non specificare `width: 100%;` a un elemento che ha `position: [absolute|fixed];`, `left`, e `right`. L'uso di `width: 100%;` è lo stesso al uso congiunto di `left: 0;` e `right: 0;`. Usa uno o l'altro, ma non tutti e due.
 
 
 <a name="position-transforms"></a>
