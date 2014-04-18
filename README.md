@@ -17,12 +17,12 @@ Apri un *issue* o *pull request* per suggerire modifiche o integrazioni.
 
 ### Traduzioni
 
-Le traduzioni sono mantenute dai loro creatori e possiblimente non sempre aggiornate con questa versione o l'originale in Inglese.
+Le traduzioni sono mantenute dai loro creatori e possibilmente non sempre aggiornate con questa versione o l'originale in Inglese.
 
 - [Italian](http://aauri.github.io/wtf-html-css/) - Tradotto da [aauri](https://github.com/aauri)
 - [Korean/한국어](http://snack-x.github.io/wtf-html-css/) - Tradotto da [Snack](https://github.com/Snack-X)
 - [Portuguese](http://webfatorial.github.io/wtf-html-css/) - Tradotto da [webfatorial](http://webfatorial.com/)
 
-Avete una traduzione che vi piacerebbe includere qui? Apri in *pull request* per aggiungerla, si prega farlo alfabeticamente.
+Avete una traduzione che vi piacerebbe includere qui? Apri un *pull request* per aggiungerla, si prega farlo alfabeticamente.
 
 <3
