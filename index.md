@@ -99,7 +99,7 @@ Ecco il [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) che u
 }
 ```
 
-Alternativamente, puoi assegnare `overflow`, con `auto` o `hidden` al progenitore.
+Alternativamente, puoi assegnare `overflow`, con `auto` o `hidden` al padre.
 
 ```css
 .parent {
@@ -110,14 +110,14 @@ Alternativamente, puoi assegnare `overflow`, con `auto` o `hidden` al progenitor
 }
 ```
 
-È importante ricordarsi che `overflow` può causare effetti collaterali non voluti, tipicamente intorno agli elementi interni al progenitore.
+È importante ricordarsi che `overflow` può causare effetti collaterali non voluti, tipicamente intorno agli elementi interni al padre.
 
 **Pro-Tip!** Fai un piacere a te e a i tuoi colleghi usando un commento `/* clearfix */` quando usi la proprietà `clear` per `floats` dato che la proprietà può essere usata per altre ragioni.
 
 
 <a name="floats-computed-height"></a>
 ### *Floats* e l'altezza computata
-Un elemento progenitore che ha solo contenuto `float` avrà una l'altezza computata `height: 0;`. Applica un *clearfix* al progenitore per costringere il *browser* a calcolare l'altezza.
+Un elemento padre che ha solo contenuto `float` avrà una l'altezza computata `height: 0;`. Applica un *clearfix* al padre per costringere il *browser* a calcolare l'altezza.
 
 
 <a name="floats-block-level"></a>
@@ -143,7 +143,7 @@ I margini orizzontali adiacenti **non collassano mai**.
 
 <a name="styling-table-rows"></a>
 ### Formattazione visuale delle righe delle tabelle
-Le righe di una tabella o `<tr>` non possono avere bordi a meno che non si usi il valore `border-collapse: collapse;` nel progenitore `<table>`.
+Le righe di una tabella o `<tr>` non possono avere bordi a meno che non si usi il valore `border-collapse: collapse;` nel padre `<table>`.
 Per di più, se il tag `<tr>` e suoi figli `<td>` o `<th>` hanno lo *stesso* `border-width`, le proprietà del bordo per le righe `<tr>` sono ignorate. [Puoi vedere un esempio in questo JS Bin](http://jsbin.com/yabek/2/)
 
 
@@ -231,7 +231,7 @@ input[type="text"],
 
 <a name="position-explained"></a>
 ### Spiegando il posizionamento `position`
-Elementi `position: fixed;` sono posizionati rispetto alla finestra di visualizzazione *"viewport"* del browser. Elementi `position: absolute;` sono posizionati rispettivamente al più vicino blocco progenitore con posizionamento diverso da `static` (per esempio, `relative`, `absolute`, o `fixed`).
+Elementi `position: fixed;` sono posizionati rispetto alla finestra di visualizzazione *"viewport"* del browser. Elementi `position: absolute;` sono posizionati rispettivamente al più vicino blocco padre con posizionamento diverso da `static` (per esempio, `relative`, `absolute`, o `fixed`).
 
 
 <a name="position-width"></a>
@@ -241,6 +241,6 @@ Non specificare `width: 100%;` ad un elemento che ha `position: [absolute|fixed]
 
 <a name="position-transforms"></a>
 ### Posizionamento `fixed` con `transform`
-Il *browser* interrompe `position: fixed;` quando al progenitore di un elemento viene applicata la proprietà `transform`. L'uso di `transform` crea un blocco con un nuovo contenitore, effettivamente costringendo il progenitore ad avere `position: relative;` in modo tale che l'elemento `fixed` sia reso `position: absolute;`.
+Il *browser* interrompe `position: fixed;` quando al padre di un elemento viene applicata la proprietà `transform`. L'uso di `transform` crea un blocco con un nuovo contenitore, effettivamente costringendo il padre ad avere `position: relative;` in modo tale che l'elemento `fixed` sia reso `position: absolute;`.
 
 [Qui c'è l'esempio](http://jsbin.com/yabek/1/), puoi leggere anche il [post di Eric Meyers su questa questione](http://meyerweb.com/eric/thoughts/2011/09/12/un-fixing-fixed-elements-with-css-transforms/).
