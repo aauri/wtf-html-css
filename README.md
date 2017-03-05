@@ -16,7 +16,6 @@ Apri un *issue* o *pull request* per suggerire modifiche o integrazioni.
 [MIT licensed.](LICENSE.md) <br>
 Copyright © 2014 Mark Otto @mdo <br>
 Copyright © 2014 Regina @uncasually <br>
-Copyright © 2016 Tommaso Gragnato @tgragnato
 
 ### Traduzioni
 
