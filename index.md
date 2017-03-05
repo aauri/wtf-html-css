@@ -7,7 +7,7 @@ layout: default
 - [Dichiara un doctype](#doctype)
 - [Matematica del Box Model](#box-model-math)
 - [Unità `rem` e Safari in iOS](#rems-mobile-safari)
-- [Prima i Flottanti](#floats-first)
+- [Prima i Flottanti *Floats*](#floats-first)
 - [*Floats* e la proprietà `clear`](#floats-clearing)
 - [*Floats* e l'altezza computata](#floats-computed-height)
 - [ I *Floats* si applicano a livello di blocco](#floats-block-level)
@@ -69,7 +69,7 @@ html {
 
 
 <a name="floats-first"></a>
-### Prima i Flottanti
+### Prima i Flottanti *Floats*
 Gli elementi flottanti `float` devono sempre essere i primi nell'ordine del documento. Questo perche gli elementi `float` devono avere qualcosa a cui avvolgersi attorno (un `wrapper`), altrimenti appaiono sotto il contenuto.
 
 ```html
